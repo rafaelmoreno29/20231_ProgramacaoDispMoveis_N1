@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
         textHello = (TextView) findViewById(R.id.textHello);
         textHello.setText("Olá, Rafael Moreno");
+
+        AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        String[] countries = getResources().getStringArray(R.array.paises_array);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countries);
+        textView.setAdapter(adapter);
+
     }
 
     @Override
